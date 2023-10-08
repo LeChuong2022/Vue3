@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Vue 3 # 3</title>
+    <style>
+        .card-products {
+            display: flex;
+            flex-direction: row;
+
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            width: 180px;
+            /* height: 50px; */
+            background: #dedede;
+            margin: 10px;
+        }
+
+        .card .card-thumb {
+            width: 180px;
+            height: auto;
+        }
+
+        .card.cart {
+            background: coral;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Hello vue.js</h1>
+    <section id="contact">
+        <div class="card-products card-container" :class="classTesting">
+            <!-- <div class="card" v-for="product in products" :style="{background : product.isCart ? 'coral' : '#fff'}"> -->
+            <!-- <div class="card" v-for="product in products" :class="{cart : product.isCart }" -->
+            <div class="card" v-for="product in productsComputed" :class="{cart : product.isCart }"
+                @dblclick="onToggleCart($event, product)">
+                <img class="card-thumb" v-bind:src="product.thumb" />
+                <h3>{{product.name}}</h3>
+                <p>{{product.price}}</p>
+            </div>
+        </div>
+    </section>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="main.js"></script>
+
+</body>
+
+</html>
